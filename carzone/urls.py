@@ -22,4 +22,7 @@ urlpatterns = static(settings.MEDIA_ROOT, document_root=settings.MEDIA_ROOT)+[
     path('admin/', admin.site.urls),
     # homepage
     path('', include('pages.urls')),
+    # car page
+    path('cars', include('cars.urls')),
+
 ]
