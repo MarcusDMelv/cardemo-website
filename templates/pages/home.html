@@ -903,17 +903,17 @@
                     <div class="team-1">
                         <div class="photo">
                             <a href="#">
-                                <img src="{% static 'img/avatar/avatar-1.jpg'%}" alt="team-1" class="img-fluid">
+                                <img src="{% static 'img/avatar/empty_temp.jpg'%}" alt="team-1" class="img-fluid">
                             </a>
                             <div class="social-list clearfix">
-                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                                <a href="{{team.facebook_link}}" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="{{team.twitter_link}}"target="_blank"  class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="{{team.google_link}}"target="_blank"  class="google-bg"><i class="fa fa-google"></i></a>
                             </div>
                         </div>
                         <div class="details">
                             <h4><a href="team-detail.html">{{team.first_name}} {{team.last_name}}</a></h4>
-                            <h5>Manager</h5>
+                            <h5>{{team.job_title}}</h5>
                         </div>
                     </div>
                 </div>

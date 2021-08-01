@@ -13,7 +13,8 @@ class Team(models.Model):
     facebook_link = models.URLField(max_length=100)
     twitter_link = models.URLField(max_length=100)
     google_link = models.URLField(max_length=100)
-    create_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
     # todo change ui
     def __str__(self):
         return self.first_name
