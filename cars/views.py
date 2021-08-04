@@ -25,22 +25,22 @@ def cars(request):
 
     if 'model' in request.GET:
         model = request.GET['model']
-        if keyword:
+        if model:
             cars = cars.filter(model__iexact=model)
 
     if 'city' in request.GET:
         city = request.GET['city']
-        if keyword:
+        if city:
             cars = cars.filter(model__iexact=city)
 
     if 'year' in request.GET:
         year = request.GET['year']
-        if keyword:
+        if year:
             cars = cars.filter(model__iexact=year)
 
     if 'body_style' in request.GET:
         body_style = request.GET['body_style']
-        if keyword:
+        if body_style:
             cars = cars.filter(model__iexact=body_style)
 
     if 'min_price' in request.GET:
@@ -75,25 +75,24 @@ def search(request):
         keyword = request.GET['keyword']
         if keyword:
             cars = cars.filter(description__icontains=keyword)
-
     if 'model' in request.GET:
         model = request.GET['model']
-        if keyword:
+        if model:
             cars = cars.filter(model__iexact=model)
 
     if 'city' in request.GET:
         city = request.GET['city']
-        if keyword:
+        if city:
             cars = cars.filter(model__iexact=city)
 
     if 'year' in request.GET:
         year = request.GET['year']
-        if keyword:
+        if year:
             cars = cars.filter(model__iexact=year)
 
     if 'body_style' in request.GET:
         body_style = request.GET['body_style']
-        if keyword:
+        if body_style:
             cars = cars.filter(model__iexact=body_style)
 
     if 'min_price' in request.GET:
@@ -102,7 +101,19 @@ def search(request):
         if max_price:
             cars = cars.filter(price__gte=min_price, price__lte=max_price)
 
+    model_search = Car.objects.values_list('model', flat=True).distinct()
+    city_search = Car.objects.values_list('city', flat=True).distinct()
+    year_search = Car.objects.values_list('year', flat=True).distinct()
+    body_style_search = Car.objects.values_list('body_style', flat=True).distinct()
+    transmission_search = Car.objects.values_list('transmission', flat=True).distinct()
+
+
     data={
         'cars': cars,
+        'model_search': model_search,
+        'city_search': city_search,
+        'year_search': year_search,
+        'body_style_search': body_style_search,
+        'transmission_search': transmission_search,
     }
     return render(request, 'cars/search.html', data)
