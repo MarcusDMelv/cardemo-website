@@ -23,6 +23,8 @@ urlpatterns = [
     # homepage
     path('', include('pages.urls')),
     # car page
-    path('cars', include('cars.urls')),
+    path('cars/', include('cars.urls')),
+    # accounts page
+    path('accounts/', include('accounts.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
