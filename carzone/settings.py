@@ -155,6 +155,6 @@ SITE_ID = 1
 # todo email sending after customers inquiry
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '' # host email
-EMAIL_HOST_PASSWORD = '' # host password
+EMAIL_HOST_USER = ''  # host email
+EMAIL_HOST_PASSWORD = ''  # host password
 EMAIL_USE_TLS = True
